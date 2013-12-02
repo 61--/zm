@@ -80,7 +80,7 @@ __declspec(selectany) cpplog::FilteringLogger __g_ff_log(LL_INFO, &__g_file_log)
 //实际使用的全局log
 __declspec(selectany) cpplog::MultiplexLogger glog(&__g_c_log, &__g_ff_log);
 
-inline std::string ws2s(const std::wstring& ws)
+inline std::string __log_ws2s(const std::wstring& ws)
 {
 	std::string curLocale = setlocale(LC_ALL, NULL);        // curLocale = "C";
 	setlocale(LC_ALL, "chs");
@@ -96,7 +96,7 @@ inline std::string ws2s(const std::wstring& ws)
 	return result;
 }
 
-inline std::wstring s2ws(const std::string& s)
+inline std::wstring __log_s2ws(const std::string& s)
 {
 	setlocale(LC_ALL, "chs"); 
 	const char* _Source = s.c_str();
@@ -115,7 +115,7 @@ inline std::wstring s2ws(const std::string& s)
 //自定义扩展类型
 template<class _Elem,class _Traits>
 std::basic_ostream<_Elem,_Traits>& operator<<(std::basic_ostream<_Elem,_Traits>& os, std::wstring wstr){
-	std::string str = ws2s(wstr);
+	std::string str = __log_ws2s(wstr);
 	os<<str;
 	return os;
 }
