@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <tchar.h>
 
+#include "log.hpp"
 
-
+#include "zm_utility.hpp"
+using namespace zm;
 // TODO: reference additional headers your program requires here
