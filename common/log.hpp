@@ -1,5 +1,6 @@
 #pragma once
 
+#define CPPLOG_FILTER_LEVEL LL_TRACE
 
 #ifdef WIN32
 #define __func__ __FUNCTION__

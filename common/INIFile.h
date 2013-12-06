@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include <boost/algorithm/string.hpp>
-#include "StringFunc.h"
+//#include "StringFunc.h"
 
 
 namespace zm{
@@ -75,14 +75,14 @@ namespace zm{
 		}
 
 
-		bool parse(const string& contents){
+		bool parse(const std::string& contents){
 			values_.clear();
 			std::vector<std::string> vs;
 			boost::algorithm::split(vs,contents,boost::algorithm::is_any_of("\r\n"));	
 
 
 			for (size_t i = 0;i<vs.size();i++){
-				string &line=vs[i];
+				std::string &line=vs[i];
 				boost::algorithm::trim(line);
 				if (line.size()==0 || line[0]=='#') continue;
 
